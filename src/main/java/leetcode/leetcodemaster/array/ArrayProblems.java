@@ -16,6 +16,10 @@ public class ArrayProblems {
 //        int i = removeElement(new int[]{0, 1, 2, 2, 3, 0, 4, 2}, 2);
 //        int i = removeElement(new int[]{3, 2, 2, 3}, 3);
 //        System.out.println(i);
+
+        // Single Number
+//        int i = singleNumber(new int[]{4,1,2,1,2});
+//        System.out.println(i);
     }
 
     // Two Sum -> Easy
@@ -42,5 +46,16 @@ public class ArrayProblems {
         }
         return index;
     }
+
+    // Single Number -> Easy
+    public static int singleNumber(int[] nums) {
+        int result = 0;
+        for (int num : nums) {
+            result ^= num;
+        }
+        return result;
+    }
+
+
 
 }
