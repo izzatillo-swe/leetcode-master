@@ -1,6 +1,7 @@
 package leetcode.leetcodemaster.array;
 
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,6 +21,10 @@ public class ArrayProblems {
         // Single Number
 //        int i = singleNumber(new int[]{4,1,2,1,2});
 //        System.out.println(i);
+
+        // Array Partition
+        int i = arrayPairSum(new int[]{6,2,6,5,1,2});
+        System.out.println(i);
     }
 
     // Two Sum -> Easy
@@ -56,6 +61,14 @@ public class ArrayProblems {
         return result;
     }
 
-
+    // Array Partition
+    public static int arrayPairSum(int[] nums) {
+        int sum = 0;
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 1; i += 2) {
+            sum += nums[i];
+        }
+        return sum;
+    }
 
 }
