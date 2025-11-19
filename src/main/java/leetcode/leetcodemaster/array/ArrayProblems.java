@@ -23,7 +23,11 @@ public class ArrayProblems {
 //        System.out.println(i);
 
         // Array Partition
-        int i = arrayPairSum(new int[]{6,2,6,5,1,2});
+//        int i = arrayPairSum(new int[]{6,2,6,5,1,2});
+//        System.out.println(i);
+
+        // Find Numbers with Even Number of Digits
+        int i = findNumbers(new int[]{555,901,482,1771});
         System.out.println(i);
     }
 
@@ -69,6 +73,24 @@ public class ArrayProblems {
             sum += nums[i];
         }
         return sum;
+    }
+
+    // Find Numbers with Even Number of Digits
+    public static int findNumbers(int[] nums) {
+        int evenCount = 0;
+        for (int i : nums) {
+            if (i == 0) {
+                evenCount++;
+            } else {
+                boolean condition = true;
+                while (i != 0) {
+                    i /= 10;
+                    condition = !condition;
+                }
+                if (condition) evenCount++;
+            }
+        }
+        return evenCount;
     }
 
 }
