@@ -27,8 +27,12 @@ public class ArrayProblems {
 //        System.out.println(i);
 
         // Find Numbers with Even Number of Digits
-        int i = findNumbers(new int[]{555,901,482,1771});
-        System.out.println(i);
+//        int i = findNumbers(new int[]{555,901,482,1771});
+//        System.out.println(i);
+
+        // Smaller Numbers Than Current Number
+//        int[] i = smallerNumbersThanCurrent(new int[]{8, 1, 2, 2, 3});
+//        System.out.println(Arrays.toString(i));
     }
 
     // Two Sum -> Easy
@@ -93,4 +97,17 @@ public class ArrayProblems {
         return evenCount;
     }
 
+    // Smaller Numbers Than Current Number
+    public static int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] arr = new int[nums.length];
+        int index = 0;
+        for (int n : nums) {
+            int c = 0;
+            for (int i = 0; i < nums.length; i++){
+                if (n > nums[i]) c++;
+            }
+            arr[index++] = c;
+        }
+        return arr;
+    }
 }
