@@ -33,6 +33,10 @@ public class ArrayProblems {
         // Smaller Numbers Than Current Number
 //        int[] i = smallerNumbersThanCurrent(new int[]{8, 1, 2, 2, 3});
 //        System.out.println(Arrays.toString(i));
+
+        // Remove Duplicates from Sorted Array
+//        int i = removeDuplicates(new int[]{0,0,1,1,1,2,2,3,3,4});
+//        System.out.println(i);
     }
 
     // Two Sum -> Easy
@@ -109,5 +113,16 @@ public class ArrayProblems {
             arr[index++] = c;
         }
         return arr;
+    }
+
+    // Remove Duplicates from Sorted Array
+    public static int removeDuplicates(int[] nums) {
+        int index = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1] && nums[i] > nums[i - 1]) {
+                nums[index++] = nums[i];
+            }
+        }
+        return index;
     }
 }
