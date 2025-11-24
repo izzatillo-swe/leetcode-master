@@ -1,0 +1,18 @@
+package leetcode.leetcodemaster.string;
+
+/// Started at: 11/11/2025
+public class StringProblems {
+
+    public static void main(String[] args) {
+
+        // To Lower Case
+//        String s = toLowerCase("Hello World");
+//        System.out.println(s);
+
+    }
+
+    // To Lower Case
+    public static String toLowerCase(String s) {
+        return s.toLowerCase();
+    }
+}
