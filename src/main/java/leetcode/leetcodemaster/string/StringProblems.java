@@ -9,10 +9,18 @@ public class StringProblems {
 //        String s = toLowerCase("Hello World");
 //        System.out.println(s);
 
+        // Defanging an IP Address
+//        String s = defangIPaddr("255.100.50.0");
+//        System.out.println(s);
     }
 
     // To Lower Case
     public static String toLowerCase(String s) {
         return s.toLowerCase();
+    }
+
+    // Defanging an IP Address
+    public static String defangIPaddr(String address) {
+        return address.replace(".", "[.]");
     }
 }
