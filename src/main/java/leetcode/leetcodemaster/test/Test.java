@@ -8,7 +8,7 @@ public class Test {
 //        int[] ncs = ncs(new int[]{1, 2, 0, 0, 3, 4, 0, 5, 6});
 //        System.out.println(Arrays.toString(ncs));
 
-        System.out.println(findDigits(0));
+//        System.out.println(findDigits(0));
     }
 
     public static int ts(int n) {
