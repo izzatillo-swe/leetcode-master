@@ -12,6 +12,10 @@ public class StringProblems {
         // Defanging an IP Address
 //        String s = defangIPaddr("255.100.50.0");
 //        System.out.println(s);
+
+        // Goal Parser Interpretation
+        String s = interpret("G()()()()(al)");
+        System.out.println(s);
     }
 
     // To Lower Case
@@ -22,5 +26,11 @@ public class StringProblems {
     // Defanging an IP Address
     public static String defangIPaddr(String address) {
         return address.replace(".", "[.]");
+    }
+
+    // Goal Parser Interpretation
+    public static String interpret(String command) {
+        command = command.replace("()", "o");
+        return command.replace("(al)", "al");
     }
 }
