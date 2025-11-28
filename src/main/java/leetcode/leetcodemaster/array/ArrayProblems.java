@@ -39,6 +39,10 @@ public class ArrayProblems {
         // Remove Duplicates from Sorted Array
 //        List<List<Integer>> res = new ArrayList<>();
 //        res.add(List.of(1));
+
+        // Pascal's Triangle
+        List<List<Integer>> lists = generate(6);
+        System.out.println(lists);
     }
 
     // Two Sum -> Easy
@@ -126,5 +130,23 @@ public class ArrayProblems {
             }
         }
         return index;
+    }
+
+    // Pascal's Triangle
+    public static List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> mainList = new ArrayList<>();
+        mainList.add(List.of(1));
+        if (numRows == 1) return mainList;
+        for (int i = 1; i < numRows; i++) {
+            List<Integer> list = new ArrayList<>();
+            list.add(1);
+            List<Integer> last = mainList.get(i - 1);
+            for (int j = 0; j < i - 1; j++) {
+                list.add(last.get(j) + last.get(j+1));
+            }
+            list.add(1);
+            mainList.add(list);
+        }
+        return mainList;
     }
 }
