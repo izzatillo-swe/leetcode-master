@@ -1,5 +1,8 @@
 package leetcode.leetcodemaster.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Test {
 
     public static void main(String[] args) {
@@ -9,6 +12,9 @@ public class Test {
 //        System.out.println(Arrays.toString(ncs));
 
 //        System.out.println(findDigits(0));
+
+        List<List<Integer>> lists = generate(5);
+        System.out.println(lists);
     }
 
     public static int ts(int n) {
@@ -34,4 +40,19 @@ public class Test {
         return d;
     }
 
+    public static List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> mainList = new ArrayList<>();
+        mainList.add(List.of(1));
+        if (numRows == 1) return mainList;
+        int count = 2;
+        for (int i = 1; i < numRows; i++) {  // numsRows = 5
+            List<Integer> list = new ArrayList<>();
+            for (int j = 1; j < count + 1; j++) {
+                list.add(j);
+            }
+            mainList.add(list);
+            count++;
+        }
+        return mainList;
+    }
 }
