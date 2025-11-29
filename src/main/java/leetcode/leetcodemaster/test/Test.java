@@ -1,6 +1,7 @@
 package leetcode.leetcodemaster.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Test {
@@ -13,8 +14,11 @@ public class Test {
 
 //        System.out.println(findDigits(0));
 
-        List<List<Integer>> lists = generate(5);
-        System.out.println(lists);
+//        List<List<Integer>> lists = generate(5);
+//        System.out.println(lists);
+
+        int[] i = sortArray(new int[]{5, 2, 1, 3, 6, 2, 4, 1, 1, 3});
+        System.out.println(Arrays.toString(i));
     }
 
     public static int ts(int n) {
@@ -54,5 +58,21 @@ public class Test {
             count++;
         }
         return mainList;
+    }
+
+    public static int[] sortArray(int[] arr) {
+        int[] sorted = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            int min = arr[i];
+            for (int j = i + 1; j < arr.length; j++) {
+                if (min > arr[j]) {
+                    min = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = min;
+                }
+            }
+            sorted[i] = min;
+        }
+        return sorted;
     }
 }
