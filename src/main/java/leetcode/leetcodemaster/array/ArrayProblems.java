@@ -41,8 +41,12 @@ public class ArrayProblems {
 //        res.add(List.of(1));
 
         // Pascal's Triangle
-        List<List<Integer>> lists = generate(6);
-        System.out.println(lists);
+//        List<List<Integer>> lists = generate(6);
+//        System.out.println(lists);
+
+        // Height Checker
+        int i = heightChecker(new int[]{1,1,4,2,1,3});
+        System.out.println(i);
     }
 
     // Two Sum -> Easy
@@ -148,5 +152,27 @@ public class ArrayProblems {
             mainList.add(list);
         }
         return mainList;
+    }
+
+    // Height Checker
+    public static int heightChecker(int[] heights) {
+        int result = 0;
+        int[] expected = new int[101];
+        for (int height : heights) {
+            expected[height]++;
+        }
+        int k = 0;
+        for (int i = 0; i < expected.length; i++) {
+            if (expected[i] != 0) {
+                while (expected[i] > 0) {
+                    if(i != heights[k]){
+                        result++;
+                    }
+                    expected[i]--;
+                    k++;
+                }
+            }
+        }
+        return result;
     }
 }

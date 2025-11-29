@@ -75,4 +75,16 @@ public class Test {
         }
         return sorted;
     }
+
+    // 1051 leetcode
+    public static int heightChecker(int[] heights) {
+        int result = 0;
+        int[] expected = new int[101];
+        for (int height : heights) {
+            expected[height]++;
+        }
+        return result;
+        //TODO: tepadagi logikani o'rganib chiqib masalani ishlash kerak
+        //debug qilib tekshirish kerak ishlagandan keyin
+    }
 }
