@@ -1,11 +1,17 @@
 package leetcode.leetcodemaster.data_structures_and_algorithms;
 
 
+import java.util.Arrays;
+
 public class PrefixSum {
 
     public static void main(String[] args) {
-        int[] prefix = buildPrefixSum(new int[]{2, 5, 3, 10});
-        System.out.println(rangeSum(prefix, 1, 3));
+        int[] prefix = buildPrefixSum(new int[]{5, 1, 3, 6, 2, 4});
+        System.out.println(Arrays.toString(prefix));
+        System.out.println(rangeSum(prefix, 2, 5));
+
+        int[] i = windowSumsWithPrefix(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}, 3);
+        System.out.println(Arrays.toString(i));
     }
 
     public static int[] buildPrefixSum(int[] arr) {
@@ -26,5 +32,17 @@ public class PrefixSum {
         } else {
             return prefix[r] - prefix[l - 1];
         }
+    }
+
+    public static int[] windowSumsWithPrefix(int[] arr, int k) {
+        int[] prefix = buildPrefixSum(arr);
+        int[] result = new int[k];
+
+        result[0] = prefix[k-1];
+        for (int i = 1; i < k; i++) {
+            result[i] = prefix[i + 2] - prefix[i - 1];
+        }
+
+        return result;
     }
 }
