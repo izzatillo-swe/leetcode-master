@@ -45,8 +45,12 @@ public class ArrayProblems {
 //        System.out.println(lists);
 
         // Height Checker
-        int i = heightChecker(new int[]{1,1,4,2,1,3});
-        System.out.println(i);
+//        int i = heightChecker(new int[]{1,1,4,2,1,3});
+//        System.out.println(i);
+
+        // Running Sum of 1d Array
+        int[] i = runningSum(new int[]{1, 2, 3, 4, 5});
+        System.out.println(Arrays.toString(i));
     }
 
     // Two Sum -> Easy
@@ -174,5 +178,18 @@ public class ArrayProblems {
             }
         }
         return result;
+    }
+
+    // Running Sum of 1d Array
+    public static int[] runningSum(int[] nums) {
+        int n = nums.length;
+        int[] prefix = new int[n];
+        prefix[0] = nums[0];
+
+        for (int i = 1; i < n; i++) {
+            prefix[i] = prefix[i-1] + nums[i];
+        }
+
+        return prefix;
     }
 }
