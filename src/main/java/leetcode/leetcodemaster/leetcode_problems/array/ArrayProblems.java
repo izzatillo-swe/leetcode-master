@@ -49,8 +49,12 @@ public class ArrayProblems {
 //        System.out.println(i);
 
         // Running Sum of 1d Array
-        int[] i = runningSum(new int[]{1, 2, 3, 4, 5});
-        System.out.println(Arrays.toString(i));
+//        int[] i = runningSum(new int[]{1, 2, 3, 4, 5});
+//        System.out.println(Arrays.toString(i));
+
+        // Find Pivot index
+        int i = pivotIndex(new int[]{-1,-1,0,1,1,0});
+        System.out.println(i);
     }
 
     // Two Sum -> Easy
@@ -187,6 +191,33 @@ public class ArrayProblems {
         prefix[0] = nums[0];
 
         for (int i = 1; i < n; i++) {
+            prefix[i] = prefix[i-1] + nums[i];
+        }
+
+        return prefix;
+    }
+
+    // Find Pivot index
+    public static int pivotIndex(int[] nums) {
+        int l = nums.length;
+        int[] prefix = buildPrefix(nums, l);
+
+        if (prefix[l-1] - prefix[0] == 0) return 0;
+
+        for (int i = 1; i < l; i++) {
+            if (prefix[i-1] == (prefix[l-1] - prefix[i])) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public static int[] buildPrefix(int[] nums, int l) {
+        int[] prefix = new int[l];
+        prefix[0] = nums[0];
+
+        for (int i = 1; i < l; i++) {
             prefix[i] = prefix[i-1] + nums[i];
         }
 
