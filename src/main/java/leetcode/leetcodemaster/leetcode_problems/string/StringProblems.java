@@ -1,4 +1,4 @@
-package leetcode.leetcodemaster.string;
+package leetcode.leetcodemaster.leetcode_problems.string;
 
 /// Started at: 11/11/2025
 public class StringProblems {

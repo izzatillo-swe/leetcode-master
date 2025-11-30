@@ -1,4 +1,4 @@
-package leetcode.leetcodemaster.array;
+package leetcode.leetcodemaster.leetcode_problems.array;
 
 
 import java.util.*;
