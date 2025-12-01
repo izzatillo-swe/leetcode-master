@@ -53,8 +53,14 @@ public class ArrayProblems {
 //        System.out.println(Arrays.toString(i));
 
         // Find Pivot index
-        int i = pivotIndex(new int[]{-1,-1,0,1,1,0});
-        System.out.println(i);
+//        int i = pivotIndex(new int[]{-1,-1,0,1,1,0});
+//        System.out.println(i);
+
+        // Move Zeroes
+        int[] ints = {0, 1, 0, 3, 12};
+        moveZeroes(ints);
+        System.out.println(Arrays.toString(ints));
+
     }
 
     // Two Sum -> Easy
@@ -222,5 +228,18 @@ public class ArrayProblems {
         }
 
         return prefix;
+    }
+
+    // Move Zeroes
+    public static void moveZeroes(int[] nums) {
+        int left = 0;
+        for (int right = 0; right < nums.length; right++) {
+            if (nums[right] != 0) {
+                int temp = nums[right];
+                nums[right] = nums[left];
+                nums[left] = temp;
+                left++;
+            }
+        }
     }
 }
