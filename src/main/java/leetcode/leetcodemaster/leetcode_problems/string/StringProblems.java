@@ -14,8 +14,12 @@ public class StringProblems {
 //        System.out.println(s);
 
         // Goal Parser Interpretation
-        String s = interpret("G()()()()(al)");
-        System.out.println(s);
+//        String s = interpret("G()()()()(al)");
+//        System.out.println(s);
+
+        // Valid Palindrome
+        boolean palindrome = isPalindrome("A man, a plan, a canal: Panama");
+        System.out.println(palindrome);
     }
 
     // To Lower Case
@@ -32,5 +36,30 @@ public class StringProblems {
     public static String interpret(String command) {
         command = command.replace("()", "o");
         return command.replace("(al)", "al");
+    }
+
+    // Valid Palindrome
+    public static boolean isPalindrome(String s) {
+        s = s.toLowerCase();
+        int i = 0;
+        int j = s.length()-1;
+
+        while (i<j) {
+            char left = s.charAt(i);
+            char right = s.charAt(j);
+            if(!Character.isLetterOrDigit(left)) {
+                i++;
+                continue;
+            }
+            if(!Character.isLetterOrDigit(right)) {
+                j--;
+                continue;
+            }
+            if(left != right) return false;
+            i++;
+            j--;
+        }
+
+        return true;
     }
 }
