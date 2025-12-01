@@ -57,10 +57,14 @@ public class ArrayProblems {
 //        System.out.println(i);
 
         // Move Zeroes
-        int[] ints = {0, 1, 0, 3, 12};
-        moveZeroes(ints);
-        System.out.println(Arrays.toString(ints));
+//        int[] ints = {0, 1, 0, 3, 12};
+//        moveZeroes(ints);
+//        System.out.println(Arrays.toString(ints));
 
+        // Reverse String
+        char[] chars = {'h', 'e', 'l', 'l', 'o'};
+        reverseString(chars);
+        System.out.println(Arrays.toString(chars));
     }
 
     // Two Sum -> Easy
@@ -240,6 +244,20 @@ public class ArrayProblems {
                 nums[left] = temp;
                 left++;
             }
+        }
+    }
+
+    // Reverse String
+    public static void reverseString(char[] s) {
+        int left = 0;
+        int right = s.length - 1;
+
+        while(left < right) {
+            char t = s[left];
+            s[left] = s[right];
+            s[right] = t;
+            left++;
+            right--;
         }
     }
 }

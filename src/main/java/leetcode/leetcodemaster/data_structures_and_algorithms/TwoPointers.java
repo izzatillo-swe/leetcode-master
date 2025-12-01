@@ -11,6 +11,9 @@ public class TwoPointers {
 
         boolean palindrome = isPalindrome("abcdcba");
         System.out.println(palindrome);
+
+        int[] reversedArray = reverseArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9});
+        System.out.println(Arrays.toString(reversedArray));
     }
 
     /// buyerda sorted array ichidan ikkita indexlarning yig'indisi targetga teng bolganini topish kerak.
@@ -37,5 +40,18 @@ public class TwoPointers {
             if (s.charAt(left++) != s.charAt(right--)) return false;
         }
         return true;
+    }
+
+    public static int[] reverseArray(int[] arr) {
+        int left = 0;
+        int right = arr.length - 1;
+        while (left < right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+        return arr;
     }
 }
