@@ -62,9 +62,13 @@ public class ArrayProblems {
 //        System.out.println(Arrays.toString(ints));
 
         // Reverse String
-        char[] chars = {'h', 'e', 'l', 'l', 'o'};
-        reverseString(chars);
-        System.out.println(Arrays.toString(chars));
+//        char[] chars = {'h', 'e', 'l', 'l', 'o'};
+//        reverseString(chars);
+//        System.out.println(Arrays.toString(chars));
+
+        // Maximum Average Subarray |
+        double maxAverage = findMaxAverage(new int[]{1, 12, -5, -6, 50, 3}, 4);
+        System.out.println(maxAverage);
     }
 
     // Two Sum -> Easy
@@ -259,5 +263,23 @@ public class ArrayProblems {
             left++;
             right--;
         }
+    }
+
+    // Maximum Average Subarray |
+    public static double findMaxAverage(int[] nums, int k) {
+        int windowSum = 0;
+
+        for (int i = 0; i < k; i++) {
+            windowSum += nums[i];
+        }
+
+        int maxS = windowSum;
+
+        for (int i = k; i < nums.length; i++) {
+            windowSum += nums[i] - nums[i - k];
+            if (windowSum > maxS) maxS = windowSum;
+        }
+
+        return (double) maxS / k;
     }
 }
