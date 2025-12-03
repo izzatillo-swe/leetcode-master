@@ -18,8 +18,11 @@ public class StringProblems {
 //        System.out.println(s);
 
         // Valid Palindrome
-        boolean palindrome = isPalindrome("A man, a plan, a canal: Panama");
-        System.out.println(palindrome);
+//        boolean palindrome = isPalindrome("A man, a plan, a canal: Panama");
+//        System.out.println(palindrome);
+
+        // Reverse Words in a String |||
+        System.out.println(reverseWords("Let's take LeetCode contest"));
     }
 
     // To Lower Case
@@ -61,5 +64,29 @@ public class StringProblems {
         }
 
         return true;
+    }
+
+    // Reverse Words in a String |||
+    public static String reverseWords(String s) {
+        char[] arr = s.toCharArray();
+        int start = 0;
+
+        for (int i = 0; i <= arr.length; i++) {
+            if (i == arr.length || arr[i] == ' ') {
+                reverse(arr, start, i - 1);
+                start = i + 1;
+            }
+        }
+        return new String(arr);
+    }
+
+    private static void reverse(char[] arr, int l, int r) {
+        while (l < r) {
+            char temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+            l++;
+            r--;
+        }
     }
 }
