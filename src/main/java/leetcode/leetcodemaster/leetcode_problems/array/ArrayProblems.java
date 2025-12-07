@@ -67,8 +67,12 @@ public class ArrayProblems {
 //        System.out.println(Arrays.toString(chars));
 
         // Maximum Average Subarray |
-        double maxAverage = findMaxAverage(new int[]{1, 12, -5, -6, 50, 3}, 4);
-        System.out.println(maxAverage);
+//        double maxAverage = findMaxAverage(new int[]{1, 12, -5, -6, 50, 3}, 4);
+//        System.out.println(maxAverage);
+
+        // Left and Right Sum Differences
+        int[] ints = leftRightDifference(new int[]{10, 4, 8, 3});
+        System.out.println(Arrays.toString(ints));
     }
 
     // Two Sum -> Easy
@@ -281,5 +285,22 @@ public class ArrayProblems {
         }
 
         return (double) maxS / k;
+    }
+
+    // Left and Right Sum Differences
+    public static int[] leftRightDifference(int[] nums) {
+        int l = nums.length;
+        int[] left = new int[l];
+        int[] right = new int[l];
+
+        for (int i = 1; i < l; i++) {
+            left[i] = left[i-1] + nums[i-1];
+            right[l-i-1] = right[l-i] + nums[l-i];
+        }
+        for (int i = 0; i < l; i++) {
+            nums[i] = Math.abs(left[i] - right[i]);
+        }
+
+        return nums;
     }
 }
