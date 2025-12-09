@@ -75,7 +75,11 @@ public class ArrayProblems {
 //        System.out.println(Arrays.toString(ints));
 
         // Sum of Variable Length Subarrays
-        int i = subarraySum(new int[]{3, 1, 1, 2});
+//        int i = subarraySum(new int[]{3, 1, 1, 2});
+//        System.out.println(i);
+
+        // Missing Number
+        int i = missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1});
         System.out.println(i);
     }
 
@@ -324,5 +328,22 @@ public class ArrayProblems {
             if (s > 0) sum -= prefix[s-1];
         }
         return sum;
+    }
+
+    // Missing Number
+    public static int missingNumber(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            map.put(nums[i], i);
+        }
+
+        for (int i = 0; i <= nums.length; i++) {
+            if (!map.containsKey(i)) {
+                return i;
+            }
+        }
+
+        return 0;
     }
 }

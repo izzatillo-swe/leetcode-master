@@ -77,6 +77,8 @@ public class Test {
     }
 
     // 1051 leetcode
+    // 268 leetcode buniyam ishlash kerak tushunvolib.
+    // https://leetcode.com/problems/missing-number/?envType=problem-list-v2&envId=array
     public static int heightChecker(int[] heights) {
         int result = 0;
         int[] expected = new int[101];
