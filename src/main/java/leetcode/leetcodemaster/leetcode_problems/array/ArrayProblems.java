@@ -87,8 +87,14 @@ public class ArrayProblems {
 //        System.out.println(Arrays.toString(intersection));
 
         // Intersection of Two Arrays ||
-        int[] intersection = intersect2(new int[]{4,9,5}, new int[]{9,4,9,8,4});
-        System.out.println(Arrays.toString(intersection));
+//        int[] intersection = intersect2(new int[]{4,9,5}, new int[]{9,4,9,8,4});
+//        int[] intersection3 = intersect2(new int[]{1, 2, 2, 1}, new int[]{2, 2});
+//        int[] intersection2 = intersect2(new int[]{3, 1, 2}, new int[]{1, 1});
+//        System.out.println(Arrays.toString(intersection));
+//        System.out.println(Arrays.toString(intersection2));
+//        System.out.println(Arrays.toString(intersection3));
+
+
     }
 
     // Two Sum -> Easy
@@ -405,24 +411,26 @@ public class ArrayProblems {
             return intersect2(nums2, nums1);
         }
 
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums2.length; i++) {
-            map.put(nums2[i], i);
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int n : nums1) {
+            map.put(n, map.getOrDefault(n, 0) + 1);
         }
 
         List<Integer> result = new ArrayList<>();
-        for (int num : nums1) {
-            if (map.containsKey(num)) {
-                result.add(num);
+
+        for (int n : nums2) {
+            if (map.containsKey(n) && map.get(n) > 0) {
+                result.add(n);
+                map.put(n, map.get(n) - 1);
             }
         }
 
-        int[] res = new int[result.size()];
-        int i = 0;
-        for (int n : result) {
-            res[i++] = n;
+        int[] arr = new int[result.size()];
+        for (int i = 0; i < result.size(); i++) {
+            arr[i] = result.get(i);
         }
 
-        return res;
+        return arr;
     }
 }
