@@ -81,6 +81,10 @@ public class ArrayProblems {
         // Missing Number
 //        int i = missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1});
 //        System.out.println(i);
+
+        // Intersection of Two Arrays
+        int[] intersection = intersection(new int[]{1, 2, 2, 1}, new int[]{2, 2});
+        System.out.println(Arrays.toString(intersection));
     }
 
     // Two Sum -> Easy
@@ -363,4 +367,30 @@ public class ArrayProblems {
 //        if(left == 0) return prefix[right];
 //        return prefix[right] - prefix[left-1];
 //    }
+
+    public static int[] intersection(int[] nums1, int[] nums2) {
+        if (nums1.length > nums2.length) {
+            return intersection(nums2, nums1);
+        }
+
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums1) {
+            set.add(num);
+        }
+
+        Set<Integer> result = new HashSet<>();
+        for (int num : nums2) {
+            if (set.contains(num)) {
+                result.add(num);
+            }
+        }
+
+        int[] res = new int[result.size()];
+        int i = 0;
+        for (int n : result) {
+            res[i++] = n;
+        }
+
+        return res;
+    }
 }
