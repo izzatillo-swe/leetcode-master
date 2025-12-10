@@ -79,8 +79,8 @@ public class ArrayProblems {
 //        System.out.println(i);
 
         // Missing Number
-        int i = missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1});
-        System.out.println(i);
+//        int i = missingNumber(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1});
+//        System.out.println(i);
     }
 
     // Two Sum -> Easy
@@ -346,4 +346,21 @@ public class ArrayProblems {
 
         return 0;
     }
+
+    // Range Sum Query - Immutable
+//    private int[] prefix;
+//
+//    public NumArray(int[] nums) {
+//        prefix = new int[nums.length];
+//        prefix[0] = nums[0];
+//
+//        for (int i = 1; i < nums.length; i++) {
+//            prefix[i] = prefix[i-1] + nums[i];
+//        }
+//    }
+//
+//    public int sumRange(int left, int right) {
+//        if(left == 0) return prefix[right];
+//        return prefix[right] - prefix[left-1];
+//    }
 }
