@@ -1,5 +1,8 @@
 package leetcode.leetcodemaster.leetcode_problems.string;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /// Started at: 11/11/2025
 public class StringProblems {
 
@@ -22,7 +25,11 @@ public class StringProblems {
 //        System.out.println(palindrome);
 
         // Reverse Words in a String |||
-        System.out.println(reverseWords("Let's take LeetCode contest"));
+//        System.out.println(reverseWords("Let's take LeetCode contest"));
+
+        // Find Words Containing Character
+        List<Integer> res = findWordsContaining(new String[]{"abc", "bcd", "aaaa", "cbc"}, 'a');
+        System.out.println(res);
     }
 
     // To Lower Case
@@ -88,5 +95,16 @@ public class StringProblems {
             l++;
             r--;
         }
+    }
+
+    // Find Words Containing Character
+    public static List<Integer> findWordsContaining(String[] words, char x) {
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].indexOf(x) != -1) {
+                res.add(i);
+            }
+        }
+        return res;
     }
 }
