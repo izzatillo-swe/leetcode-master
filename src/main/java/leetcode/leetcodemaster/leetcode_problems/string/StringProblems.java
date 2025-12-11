@@ -28,8 +28,11 @@ public class StringProblems {
 //        System.out.println(reverseWords("Let's take LeetCode contest"));
 
         // Find Words Containing Character
-        List<Integer> res = findWordsContaining(new String[]{"abc", "bcd", "aaaa", "cbc"}, 'a');
-        System.out.println(res);
+//        List<Integer> res = findWordsContaining(new String[]{"abc", "bcd", "aaaa", "cbc"}, 'a');
+//        System.out.println(res);
+
+        // Score of a String
+        System.out.println(scoreOfString("hello"));
     }
 
     // To Lower Case
@@ -106,5 +109,14 @@ public class StringProblems {
             }
         }
         return res;
+    }
+
+    // Score of a String
+    public static int scoreOfString(String s) {
+        int score = 0;
+        for (int i = 1; i < s.length(); i++) {
+            score += Math.abs(s.charAt(i) - s.charAt(i - 1));
+        }
+        return score;
     }
 }
