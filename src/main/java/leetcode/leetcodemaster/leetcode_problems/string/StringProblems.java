@@ -32,7 +32,11 @@ public class StringProblems {
 //        System.out.println(res);
 
         // Score of a String
-        System.out.println(scoreOfString("hello"));
+//        System.out.println(scoreOfString("hello"));
+
+        // Final Value of Variable After Performing Operations
+        int i = finalValueAfterOperations(new String[]{"--X", "X++", "X++"});
+        System.out.println(i);
     }
 
     // To Lower Case
@@ -118,5 +122,15 @@ public class StringProblems {
             score += Math.abs(s.charAt(i) - s.charAt(i - 1));
         }
         return score;
+    }
+
+    // Final Value of Variable After Performing Operations
+    public static int finalValueAfterOperations(String[] operations) {
+        int x = 0;
+        for (String o : operations) {
+            if (o.charAt(1) == '+') x++;
+            else x--;
+        }
+        return x;
     }
 }
